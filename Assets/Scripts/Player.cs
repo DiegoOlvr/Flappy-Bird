@@ -32,4 +32,20 @@ public class Player : MonoBehaviour
             fisica.velocity = Vector2.up * velocidade;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+          
+        if (collision.gameObject.CompareTag("Cano"))
+        {
+            Destroy(gameObject);
+            Controller.acesso.Mostrar_game_over();
+        }
+        if (collision.gameObject.CompareTag("Meio"))
+        {
+            Controller.acesso.Ganhar_pontos();
+        }
+    }
+
+    
 }
